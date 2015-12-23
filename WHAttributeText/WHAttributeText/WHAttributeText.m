@@ -69,6 +69,14 @@
     return whAttributeString;
 }
 
++ (id)getAttributeStringWithString:(NSString *)text andAttribute:(void (^)(WHAttributeText *make))block
+{
+    WHAttributeText *attributeText = [WHAttributeText attributeText];
+    attributeText.string = text;
+    block(attributeText);
+    return [attributeText getAttributeString];
+}
+
 //2, 返回设置好属性和长宽的label
 - (UILabel *)getAttributeLabel
 {
@@ -98,6 +106,32 @@
     WHAttributeText *attributeText = [[WHAttributeText alloc] init];
     block(attributeText);
     return [attributeText getAttributeDictionary];
+}
+
+//6,以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
++ (NSMutableAttributedString *)getTwoPartAttributeStringWithString:(NSString *)str Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHAttributeText *make))leftMake andRightAttribute:(void (^)(WHAttributeText *make))rightMake
+{
+    //左边
+    WHAttributeText *leftAttributeText = [WHAttributeText attributeText];
+    leftMake(leftAttributeText);
+    NSDictionary *leftDict = [leftAttributeText getAttributeDictionary];
+    
+    WHAttributeText *rightAttributeText = [WHAttributeText attributeText];
+    rightMake(rightAttributeText);
+    NSDictionary *rightDict = [rightAttributeText getAttributeDictionary];
+    
+    
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSRange range = [str rangeOfString:decollator];
+    if (range.location == NSNotFound) {
+        [attributeString addAttributes:leftDict range:NSMakeRange(0, str.length)];
+    }else{
+        [attributeString addAttributes:leftDict range:NSMakeRange(0, range.location)];
+        [attributeString addAttributes:rightDict range:NSMakeRange(range.location+1, str.length-range.length-range.location)];
+    }
+    
+    return attributeString;
 }
 
 

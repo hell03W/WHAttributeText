@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WHAttributeText.h"
+#import "WHAttributeStringKiller.h"
 
 @interface ViewController ()
 
@@ -57,7 +57,37 @@
     [self.view addSubview:label1];
     label1.frame = CGRectMake(20, 20, attributeText1.width, attributeText1.height);
     label1.backgroundColor = [UIColor redColor];
+    
+    
+    //测试代码
+    //1.1 测试返回属性字符串
+    WHAttributeText *att = [WHAttributeText attributeText];
+    att.string = @"ans阿基里斯那是看你老公看见了那是的高科技那公司的空间里那个谁看见了就爱点谁看见了就爱点附近";
+    att.fontSize(15).fontColor([UIColor redColor]).fontObliqueness(@0.5);
+    NSMutableAttributedString *attributeString = [att getAttributeString];
+    
+    UILabel *lab1 = [[UILabel alloc] init];
+    [self.view addSubview:lab1];
+    lab1.attributedText = [att getAttributeString];
+    lab1.frame = CGRectMake(20, 350, 300, 100);
+    lab1.numberOfLines = 0;
+    
 }
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

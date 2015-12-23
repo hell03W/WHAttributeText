@@ -16,6 +16,9 @@ typedef  WHAttributeText *(^WHBlockNumber)(NSNumber *);
 
 @interface WHAttributeText : NSObject
 
+/*
+ 属性字符串   属性字典   label
+ */
 //其它方法
 
 //1, 创建对象
@@ -26,6 +29,7 @@ typedef  WHAttributeText *(^WHBlockNumber)(NSNumber *);
 
 //2，返回 属性字符串
 - (id)getAttributeString;
++ (id)getAttributeStringWithString:(NSString *)text andAttribute:(void (^)(WHAttributeText *make))block;
 
 //3，获取一个放着属性字符串的label
 - (UILabel *)getAttributeLabel;
@@ -39,6 +43,8 @@ typedef  WHAttributeText *(^WHBlockNumber)(NSNumber *);
 //height
 //建议这种label使用frame设置大小,使用约束进行设置时候会有不可预料的效果!!!!!!!!
 
+//6,以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
++ (NSMutableAttributedString *)getTwoPartAttributeStringWithString:(NSString *)str Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHAttributeText *make))leftMake andRightAttribute:(void (^)(WHAttributeText *make))rightMake;
 
 
 
