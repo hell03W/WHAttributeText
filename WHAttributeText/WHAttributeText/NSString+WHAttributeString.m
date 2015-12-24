@@ -45,6 +45,15 @@
     return attributeString;
 }
 
+- (float)getTextWidth:(void (^)(WHText *make))block
+{
+    WHText *attText = [WHText textWithString:self];
+    block(attText);
+    return attText.width;
+}
+
+
+
 // 以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
 + (NSMutableAttributedString *)getSpecialTextWithText:(NSString *)text Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake
 {

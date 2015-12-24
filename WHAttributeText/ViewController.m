@@ -75,6 +75,13 @@
     [self.view addSubview:lab4];
     
     
+    //
+    NSString *abcd = @"是发顺丰是";
+    float width = [abcd getTextWidth:^(WHText *make) {
+        make.fontSize(10);
+    }];
+    
+    
     
     
     
@@ -92,6 +99,8 @@
     lab2.attributedText = attriString;
     lab2.frame = CGRectMake(20, 450, 300, 100);
     lab2.numberOfLines = 0;
+    
+    
     
     
     

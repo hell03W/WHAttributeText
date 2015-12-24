@@ -18,13 +18,12 @@
 - (NSMutableAttributedString *)getSpecialTextWithFrontN:(NSInteger)n andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake;
 
 
+//根据一个短字符串和字符串的属性,
+- (float)getTextWidth:(void (^)(WHText *make))block;
+
+
 
 // 类方法: 根据一个字符串,设置字符串以指定字符为分割,左边和右边属性不同  返回属性字符串
 + (NSMutableAttributedString *)getSpecialTextWithText:(NSString *)text Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake;
-
-
-//根据一个短字符串和字符串的属性,
-
-
 
 @end
