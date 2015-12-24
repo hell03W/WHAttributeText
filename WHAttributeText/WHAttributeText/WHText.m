@@ -120,33 +120,6 @@
     return [attributeText getAttributeDictionary];
 }
 
-//6,以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
-+ (NSMutableAttributedString *)getTwoPartAttributeStringWithText:(NSString *)text Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake
-{
-    //左边
-    WHText *leftAttributeText = [WHText text];
-    leftMake(leftAttributeText);
-    NSDictionary *leftDict = [leftAttributeText getAttributeDictionary];
-    
-    WHText *rightAttributeText = [WHText text];
-    rightMake(rightAttributeText);
-    NSDictionary *rightDict = [rightAttributeText getAttributeDictionary];
-    
-    
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text];
-    
-    NSRange range = [text rangeOfString:decollator];
-    if (range.location == NSNotFound) {
-        [attributeString addAttributes:leftDict range:NSMakeRange(0, text.length)];
-    }else{
-        [attributeString addAttributes:leftDict range:NSMakeRange(0, range.location)];
-        [attributeString addAttributes:rightDict range:NSMakeRange(range.location+1, text.length-range.length-range.location)];
-    }
-    
-    return attributeString;
-}
-
-
 
 #pragma mark - set方法， 添加段落或者文字的属性
 - (void)addAttribute:(id)attribute value:(id)value

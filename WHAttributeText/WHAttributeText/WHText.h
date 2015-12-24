@@ -41,11 +41,6 @@ typedef  WHText *(^WHBlockNumber)(NSNumber *);
 - (id)getAttributeDictionary;
 + (id)getAttributeDictionary:(void (^)(WHText *make))block;
 
-//6,以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
-+ (NSMutableAttributedString *)getTwoPartAttributeStringWithText:(NSString *)text Decollator:(NSString *)decollator andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake;
-
-
-
 
 
 
