@@ -42,6 +42,10 @@ typedef  WHText *(^WHBlockNumber)(NSNumber *);
 + (id)getAttributeDictionary:(void (^)(WHText *make))block;
 
 
+//5, 根据字符串和属性,获取text的宽度
++ (NSInteger)getTextWidthString:(NSString *)text attribute:(void (^)(WHText *make))block;
+
+
 
 
 

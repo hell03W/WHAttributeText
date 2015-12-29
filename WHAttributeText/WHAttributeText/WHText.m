@@ -120,6 +120,15 @@
     return [attributeText getAttributeDictionary];
 }
 
+//5, 设置属性并返回字符串的长度
++ (NSInteger)getTextWidthString:(NSString *)text attribute:(void (^)(WHText *make))block
+{
+    UILabel *label = [WHText getLabelWithText:text andAttribute:block];
+    label.frame = CGRectMake(0, 0, 0, 0);
+    [label sizeToFit];
+    return label.frame.size.width;
+}
+
 
 #pragma mark - set方法， 添加段落或者文字的属性
 - (void)addAttribute:(id)attribute value:(id)value
