@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (WHAttributeLabel)
+@interface UILabel (WHText)
+
+/// 根据文本的样式/属性, 获取文本所占的宽度.
+- (float)getTextWidth;
+
+/// 文本宽度自适应.
+- (void)autoTextWidth;
+
 
 //1, 根据label上的文字和设置, 将label.text 变成label.attributeText.
 
-//2, 根据label上的文字和设置, 获取label上面文字的宽度.
 
 
 @end

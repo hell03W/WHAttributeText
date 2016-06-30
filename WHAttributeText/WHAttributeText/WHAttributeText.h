@@ -9,9 +9,9 @@
 #ifndef WHAttributeStringKiller_h
 #define WHAttributeStringKiller_h
 
-#import "UILabel+WHAttributeLabel.h"
-#import "NSString+WHAttributeString.h"
-#import "WHText.h"
-
+#import "UILabel+WHText.h"
+#import "NSString+WHText.h"
+#import "NSAttributedString+WHText.h"
+#import "WHTextAttribute.h"
 
 #endif /* WHAttributeStringKiller_h */

@@ -7,35 +7,18 @@
 //
 
 #import "WHText.h"
+#import "WHTextAttribute.h"
 
 @interface WHText ()
 
-@property (nonatomic, strong)NSMutableDictionary *whAttributeDictionary;
+//@property (nonatomic, strong)NSMutableDictionary *whAttributeDictionary;
 
 @end
 
 @implementation WHText
 
 #pragma mark - 创建对象
-- (instancetype)init
-{
-    return [self initWithString:nil];
-}
 
-- (id)initWithString:(NSString *)text
-{
-    if (self = [super init]) {
-        _whParagrahStyle = [[NSMutableParagraphStyle alloc] init];
-        _whParagrahStyle.lineSpacing = 4;
-        
-        _whAttributeDictionary = [NSMutableDictionary dictionary];
-        [_whAttributeDictionary setValue:[UIFont systemFontOfSize:13] forKey:NSFontAttributeName];
-        [_whAttributeDictionary setValue:_whParagrahStyle forKey:NSParagraphStyleAttributeName];
-        
-        self.string = text;
-    }
-    return self;
-}
 + (id)textWithString:(NSString *)text
 {
     return [[self alloc] initWithString:text];
@@ -50,24 +33,6 @@
 #pragma mark - 一些其它方法
 //1, 获取属性字符串 返回 NSMutableAttributedString 类型
      //调用这个方法之后才能获取size
-- (id)getText
-{
-    //1，如果字符串为空，那么返回nil
-    if (!_string) {
-        return nil;
-    }
-    NSMutableAttributedString *whAttributeString = [[NSMutableAttributedString alloc] initWithString:_string];
-    //3，给属性字符串设置属性
-    [whAttributeString addAttributes:self.whAttributeDictionary range:NSMakeRange(0, _string.length)];
-    
-    //4,计算字典属性和文字所占的Label的长宽
-    self.size = [_string boundingRectWithSize:CGSizeMake(self.width, MAXFLOAT)
-                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:self.whAttributeDictionary
-                                          context:nil].size;//计算文字大小
-    
-    return whAttributeString;
-}
 
 + (id)getTextWithString:(NSString *)text andAttribute:(void (^)(WHText *make))block
 {
@@ -108,11 +73,7 @@
     return [att getLabel];
 }
 
-//4, 获取属性字典
-- (id)getAttributeDictionary
-{
-    return self.whAttributeDictionary;
-}
+
 + (id)getAttributeDictionary:(void (^)(WHText *make))block
 {
     WHText *attributeText = [[WHText alloc] init];
@@ -158,33 +119,12 @@
 
 
 
-// 设置文本的宽度和高度.
-- (WHBlockFloat)textWidth
-{
-    return ^(CGFloat width){
-        self.width = width;
-        return self;
-    };
-}
 
-- (WHBlockFloat)textHeight
-{
-    return ^(CGFloat height){
-        self.height = height;
-        return self;
-    };
-}
+
+
+
+
+
 
 @end
-
-
-
-
-
-
-
-
-
-
-
 

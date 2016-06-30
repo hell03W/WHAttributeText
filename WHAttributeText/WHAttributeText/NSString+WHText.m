@@ -6,9 +6,35 @@
 //  Copyright © 2015年 wandels. All rights reserved.
 //
 
-#import "NSString+WHAttributeString.h"
+#import "NSString+WHText.h"
+#import "WHText.h"
+#import "WHTextAttribute.h"
 
-@implementation NSString (WHAttributeString)
+@implementation NSString (WHText)
+
+#pragma mark - 根据 string字符串和属性设置和rang范围获取一个属性字符串
+- (NSMutableAttributedString *)get_AttributeTextWithAttribute:(void (^)(WHTextAttribute *make))block {
+    
+    return [self get_AttributeTextWithRange:NSMakeRange(0, self.length) attribute:block];
+}
+- (NSMutableAttributedString *)get_AttributeTextWithRange:(NSRange)range attribute:(void (^)(WHTextAttribute *make))block {
+    
+    WHTextAttribute *attribute = [WHTextAttribute attribute];
+    block(attribute);
+
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:self];
+    [attributeString addAttributes:attribute.attributeDict range:NSMakeRange(0, self.length)];
+    return attributeString;
+}
+
+
+
+
+
+
+
+
+
 
 // 以指定字符为分割,左边是一种格式,右边的字符串是另一种格式.
 - (NSMutableAttributedString *)getSpecialTextWithDecollator:(NSString *)decollator andLeftAttribute:(void (^)(WHText *make))leftMake andRightAttribute:(void (^)(WHText *make))rightMake

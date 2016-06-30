@@ -21,7 +21,16 @@ typedef  WHTextAttribute *(^WHBlockNumber)(NSNumber *);
 // 存放字符串相关各种属性.
 @property (nonatomic, strong, readonly) NSMutableDictionary *attributeDict;
 
+/// 类方法创建对象
++ (instancetype)attribute;
 
++ (instancetype)attributeWithDict:(NSDictionary *)dict;
+
+/// 通过一个block设置字符串属性, 返回设置后的字典
++ (NSMutableDictionary *)get_Attribute:(void (^)(WHTextAttribute *make))block;
+
+
+#pragma mark - 定义文字属性和段落属性
 //文字属性
 //1,文字大小
 @property (nonatomic, assign)CGFloat whFontSize;
@@ -40,9 +49,6 @@ typedef  WHTextAttribute *(^WHBlockNumber)(NSNumber *);
 
 
 
-//段落属性
-//1，设置段落属性
-
 //2,行间距
 @property (nonatomic, assign)CGFloat whParaLineSpacing;
 //3,段间距
@@ -60,6 +66,7 @@ typedef  WHTextAttribute *(^WHBlockNumber)(NSNumber *);
 
 
 
+#pragma mark - 定义支持链式编程的方法
 //支持链式编程 链式编程 需要借助block来实现
 - (WHBlockFloat)fontSize;
 - (WHBlockColor)fontColor;

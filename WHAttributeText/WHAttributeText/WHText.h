@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 wandels. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 

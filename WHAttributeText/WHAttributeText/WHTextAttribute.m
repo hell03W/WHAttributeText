@@ -10,7 +10,8 @@
 
 @interface WHTextAttribute ()
 
-@property (nonatomic, strong, readwrite) NSMutableParagraphStyle *paraStyle;
+@property (nonatomic, strong) NSMutableParagraphStyle *paraStyle;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *attributeDict;
 
 @end
 
@@ -30,7 +31,28 @@
     return self;
 }
 
++ (instancetype)attribute {
+    
+    return [[self alloc] init];
+}
 
++ (instancetype)attributeWithDict:(NSDictionary *)dict {
+    
+    WHTextAttribute *attribute = [WHTextAttribute attribute];
+    [attribute setValue:dict.mutableCopy forKey:@"attributeDict"];
+    [attribute setValue:[dict objectForKey:NSParagraphStyleAttributeName] forKey:@"paraStyle"];
+    return attribute;
+}
+
++ (NSMutableDictionary *)get_Attribute:(void (^)(WHTextAttribute *make))block {
+    
+    WHTextAttribute *attribute = [WHTextAttribute attribute];
+    block(attribute);
+    return attribute.attributeDict;
+}
+
+
+#pragma mark - 定义文字属性和段落属性
 //各个属性的set方法
 - (void)setWhFontSize:(CGFloat)whFontSize
 {
@@ -116,7 +138,7 @@
 
 
 
-#pragma mark - block 实现链式编程
+#pragma mark - 定义支持链式编程的方法
 //链式编程 需要借助block来实现
 - (WHTextAttribute *)and
 {

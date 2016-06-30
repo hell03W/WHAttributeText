@@ -6,8 +6,8 @@
 //  Copyright © 2015年 wandels. All rights reserved.
 //
 
-#import "UILabel+WHAttributeLabel.h"
+#import "UILabel+WHText.h"
 
-@implementation UILabel (WHAttributeLabel)
+@implementation UILabel (WHText)
 
 @end
