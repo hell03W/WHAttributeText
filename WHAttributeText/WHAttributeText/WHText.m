@@ -131,10 +131,7 @@
 
 
 #pragma mark - set方法， 添加段落或者文字的属性
-- (void)addAttribute:(id)attribute value:(id)value
-{
-    [self.whAttributeDictionary setObject:value forKey:attribute];
-}
+
 
 - (CGFloat)height
 {
@@ -157,192 +154,9 @@
     _height = whSize.height;
 }
 
-//各个属性的set方法
-- (void)setWhFontSize:(CGFloat)whFontSize
-{
-    _whFontSize = whFontSize;
-    [self addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:_whFontSize]];
-}
-- (void)setWhFontColor:(UIColor *)whFontColor
-{
-    _whFontColor = whFontColor;
-    [self addAttribute:NSForegroundColorAttributeName value:_whFontColor];
-}
-- (void)setWhFontBackgroundColor:(UIColor *)whFontBackgroundColor
-{
-    _whFontBackgroundColor = whFontBackgroundColor;
-    [self addAttribute:NSBackgroundColorAttributeName value:_whFontBackgroundColor];
-}
-- (void)setWhFontKern:(NSNumber *)whFontKern
-{
-    _whFontKern = whFontKern;
-    [self addAttribute:NSKernAttributeName value:_whFontKern];
-}
-- (void)setWhFontUnderline:(NSNumber *)whFontUnderline
-{
-    _whFontUnderline = whFontUnderline;
-    [self addAttribute:NSUnderlineStyleAttributeName value:_whFontUnderline];
-}
-- (void)setWhFontUnderlineColor:(UIColor *)whFontUnderlineColor
-{
-    _whFontUnderlineColor = whFontUnderlineColor;
-    [self addAttribute:NSUnderlineColorAttributeName value:_whFontUnderlineColor];
-}
-- (void)setWhFontObliqueness:(NSNumber *)whFontObliqueness
-{
-    _whFontObliqueness = whFontObliqueness;
-    [self addAttribute:NSObliquenessAttributeName value:_whFontObliqueness];
-}
 
 
 
-
-
-//段落的set方法
-- (void)setWhParaLineSpacing:(CGFloat)whParaLineSpacing
-{
-    _whParaLineSpacing = whParaLineSpacing;
-    self.whParagrahStyle.lineSpacing = _whParaLineSpacing;
-}
-- (void)setWhParaSpacing:(CGFloat)whParaSpacing
-{
-    _whParaSpacing = whParaSpacing;
-    self.whParagrahStyle.paragraphSpacing = _whParaSpacing;
-}
-- (void)setWhParaAlignment:(NSTextAlignment)whParaAlignment
-{
-    _whParaAlignment = whParaAlignment;
-    self.whParagrahStyle.alignment = _whParaAlignment;
-}
-- (void)setWhParaFirstLineHeadIndent:(CGFloat)whParaFirstLineHeadIndent
-{
-    _whParaFirstLineHeadIndent = whParaFirstLineHeadIndent;
-    self.whParagrahStyle.firstLineHeadIndent = _whParaFirstLineHeadIndent;
-}
-- (void)setWhParaMinimumLineHeight:(CGFloat)whParaMinimumLineHeight
-{
-    _whParaMinimumLineHeight = whParaMinimumLineHeight;
-    self.whParagrahStyle.minimumLineHeight = _whParaMinimumLineHeight;
-}
-- (void)setWhParaMaximumLineHeight:(CGFloat)whParaMaximumLineHeight
-{
-    _whParaMaximumLineHeight = whParaMaximumLineHeight;
-    self.whParagrahStyle.maximumLineHeight = _whParaMaximumLineHeight;
-}
-- (void)setWhParaHeadIndent:(CGFloat)whParaHeadIndent
-{
-    _whParaHeadIndent = whParaHeadIndent;
-    self.whParagrahStyle.headIndent = _whParaHeadIndent;
-}
-
-
-#pragma mark - block 实现链式编程
-//链式编程 需要借助block来实现
-- (WHText *)and
-{
-    return self;
-}
-- (WHText *)with
-{
-    return self;
-}
-
-//返回block代码块
-//////////// 文字 /////////////
-- (WHBlockFloat)fontSize
-{
-    return ^(CGFloat fontSize){
-        self.whFontSize = fontSize;
-        return self;
-    };
-}
-- (WHBlockColor)fontColor{
-    return ^(UIColor *fontColor){
-        self.whFontColor = fontColor;
-        return self;
-    };
-}
-- (WHBlockColor)fontBackgroundColor{
-    return ^(UIColor *fontBackgroundColor){
-        self.whFontBackgroundColor = fontBackgroundColor;
-        return self;
-    };
-}
-- (WHBlockNumber)fontKern{
-    return ^(NSNumber *fontKern){
-        self.whFontKern = fontKern;
-        return self;
-    };
-}
-- (WHBlockNumber)fontUnderline{
-    return ^(NSNumber *fontUnderline){
-        self.whFontUnderline = fontUnderline;
-        return self;
-    };
-}
-- (WHBlockColor)fontUnderlineColor{
-    return ^(UIColor *fontUnderlineColor){
-        self.whFontUnderlineColor = fontUnderlineColor;
-        return self;
-    };
-}
-- (WHBlockNumber)fontObliqueness{
-    return ^(NSNumber *fontObliqueness){
-        self.whFontObliqueness = fontObliqueness;
-        return self;
-    };
-}
-
-//////////// 段落 /////////////
-- (WHBlockFloat)paraLineSpacing
-{
-    return ^(CGFloat lineSpacing){
-        _whParagrahStyle.lineSpacing = lineSpacing;
-        return self;
-    };
-}
-- (WHBlockFloat)paraSpacing
-{
-    return ^(CGFloat paragraphSpacing){
-        _whParagrahStyle.paragraphSpacing = paragraphSpacing;
-        return self;
-    };
-}
-- (WHText *(^)(NSTextAlignment))paraAlignment
-{
-    return ^(NSTextAlignment alignment){
-        _whParagrahStyle.alignment = alignment;
-        return self;
-    };
-}
-- (WHBlockFloat)paraFirstLineHeadIndent
-{
-    return ^(CGFloat firstLineHeadIndent){
-        _whParagrahStyle.firstLineHeadIndent = firstLineHeadIndent;
-        return self;
-    };
-}
-- (WHBlockFloat)paraMinimumLineHeight
-{
-    return ^(CGFloat minimumLineHeight){
-        _whParagrahStyle.minimumLineHeight = minimumLineHeight;
-        return self;
-    };
-}
-- (WHBlockFloat)paraMaximumLineHeight
-{
-    return ^(CGFloat maximumLineHeight){
-        _whParagrahStyle.maximumLineHeight = maximumLineHeight;
-        return self;
-    };
-}
-- (WHBlockFloat)paraHeadIndent
-{
-    return ^(CGFloat headIndent){
-        _whParagrahStyle.headIndent = headIndent;
-        return self;
-    };
-}
 
 // 设置文本的宽度和高度.
 - (WHBlockFloat)textWidth
@@ -360,7 +174,6 @@
         return self;
     };
 }
-
 
 @end
 

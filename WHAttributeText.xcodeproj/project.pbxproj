@@ -10,6 +10,8 @@
 		356B247D1C2BC1EA00723CC7 /* NSString+WHAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 356B24771C2BC1EA00723CC7 /* NSString+WHAttributeString.m */; };
 		356B247E1C2BC1EA00723CC7 /* UILabel+WHAttributeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 356B24791C2BC1EA00723CC7 /* UILabel+WHAttributeLabel.m */; };
 		356B247F1C2BC1EA00723CC7 /* WHText.m in Sources */ = {isa = PBXBuildFile; fileRef = 356B247C1C2BC1EA00723CC7 /* WHText.m */; };
+		358B61871D24BE5100E1CD57 /* WHTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 358B61861D24BE5100E1CD57 /* WHTextAttribute.m */; };
+		358B61891D24BE7F00E1CD57 /* 云英会账号申请.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 358B61881D24BE7F00E1CD57 /* 云英会账号申请.rtf */; };
 		BF6A243E1BD77B0B00294FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A243D1BD77B0B00294FB1 /* main.m */; };
 		BF6A24411BD77B0B00294FB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A24401BD77B0B00294FB1 /* AppDelegate.m */; };
 		BF6A24441BD77B0B00294FB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A24431BD77B0B00294FB1 /* ViewController.m */; };
@@ -37,6 +39,9 @@
 		356B247A1C2BC1EA00723CC7 /* WHAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHAttributeText.h; sourceTree = "<group>"; };
 		356B247B1C2BC1EA00723CC7 /* WHText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHText.h; sourceTree = "<group>"; };
 		356B247C1C2BC1EA00723CC7 /* WHText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHText.m; sourceTree = "<group>"; };
+		358B61851D24BE5100E1CD57 /* WHTextAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTextAttribute.h; sourceTree = "<group>"; };
+		358B61861D24BE5100E1CD57 /* WHTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTextAttribute.m; sourceTree = "<group>"; };
+		358B61881D24BE7F00E1CD57 /* 云英会账号申请.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "云英会账号申请.rtf"; sourceTree = "<group>"; };
 		BF6A24381BD77B0B00294FB1 /* WHAttributeText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WHAttributeText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A243C1BD77B0B00294FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6A243D1BD77B0B00294FB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +85,9 @@
 				356B247A1C2BC1EA00723CC7 /* WHAttributeText.h */,
 				356B247B1C2BC1EA00723CC7 /* WHText.h */,
 				356B247C1C2BC1EA00723CC7 /* WHText.m */,
+				358B61851D24BE5100E1CD57 /* WHTextAttribute.h */,
+				358B61861D24BE5100E1CD57 /* WHTextAttribute.m */,
+				358B61881D24BE7F00E1CD57 /* 云英会账号申请.rtf */,
 			);
 			path = WHAttributeText;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358B61891D24BE7F00E1CD57 /* 云英会账号申请.rtf in Resources */,
 				BF6A24471BD77B0C00294FB1 /* Main.storyboard in Resources */,
 				BF6A244C1BD77B0C00294FB1 /* LaunchScreen.xib in Resources */,
 				BF6A24491BD77B0C00294FB1 /* Images.xcassets in Resources */,
@@ -249,6 +258,7 @@
 				BF6A24411BD77B0B00294FB1 /* AppDelegate.m in Sources */,
 				356B247F1C2BC1EA00723CC7 /* WHText.m in Sources */,
 				356B247E1C2BC1EA00723CC7 /* UILabel+WHAttributeLabel.m in Sources */,
+				358B61871D24BE5100E1CD57 /* WHTextAttribute.m in Sources */,
 				BF6A243E1BD77B0B00294FB1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
